@@ -16,6 +16,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -25,7 +27,7 @@ import java.util.ArrayList;
 public class LeerArchivo {
     FileInputStream fstream;
     DataInputStream distream;
-    FileReader entrada;
+    //FileReader entrada;
     BufferedReader in;
     File ruta;
     public ArrayList<String> entradas=new ArrayList();
@@ -39,20 +41,19 @@ public class LeerArchivo {
         this.fstream=new FileInputStream(entradastxt);
     }
     public void AbrirArchivo() {
-        try{
-            entrada = new FileReader(ruta);
+        //entrada = new FileReader(ruta);
             distream = new DataInputStream(fstream);
 //            in = new BufferedReader(entrada);
             in = new BufferedReader(new InputStreamReader(distream));
-        }
-        catch(IOException ioException){System.err.println( "Error al abrir el archivo." );}
+               
     }
     
     public void LeerArchivo(){
         try{
         String s=in.readLine();
         while ( s!=null) {         	     
-	          entradas.add(s);                  
+	          entradas.add(s);  
+                  System.out.println(s);
                   s = in.readLine();	            
 	         }
         }catch(EOFException endOfFileException){return;}
@@ -61,10 +62,10 @@ public class LeerArchivo {
     
     public void cerrarArchivo()
 	   {
-	      try { if ( entrada != null )
-	            entrada.close();
-	         System.exit( 0 );
-	      } catch ( IOException ioException ){System.err.println( "Error al cerrar el archivo." );
-              System.exit( 1 ); } 
+        try {
+            distream.close();
+        } catch (IOException ex) {
+            System.err.println("Ocurrio un error: " + ex.getMessage());
+        }
 	   }
 }

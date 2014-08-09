@@ -19,7 +19,7 @@ public class Explorador {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        LeerArchivo ltest= new LeerArchivo("C:/Users/Fabian/Desktop/entradas.txt");
+        LeerArchivo ltest= new LeerArchivo("C:\\Users\\Fabian\\Desktop\\entradas.txt");
         //ltest.AbrirArchivo();
         System.out.println(ltest.entradas.get(0));
         //ltest.LeerArchivo();
