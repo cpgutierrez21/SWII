@@ -7,6 +7,7 @@
 package co.edu.unbosque;
 
 import co.edu.unbosque.marte.LeerArchivo;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -18,12 +19,12 @@ import org.testng.annotations.Test;
  */
 public class TestLeerArchivo {
     @Test
-    public void TestLeerArchivo() {
+    public void TestLeerArchivo() throws FileNotFoundException {
         LeerArchivo l = new LeerArchivo("entradas.txt");
     }
     
     @Test (expectedExceptions = {IllegalArgumentException.class})
-    public void seEsperaLaExcepcionPorCadenaVacia(){
+    public void seEsperaLaExcepcionPorCadenaVacia() throws FileNotFoundException{
         LeerArchivo l=new LeerArchivo("");
     }
     

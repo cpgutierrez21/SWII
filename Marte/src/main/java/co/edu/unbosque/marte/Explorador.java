@@ -19,12 +19,20 @@ public class Explorador {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        LeerArchivo ltest= new LeerArchivo("C:\\Users\\Fabian\\Desktop\\entradas.txt");
-        //ltest.AbrirArchivo();
-        System.out.println(ltest.entradas.get(0));
-        //ltest.LeerArchivo();
+        LeerArchivo ltest= new LeerArchivo("C:\\entradas.txt");
+        ltest.AbrirArchivo();        
+        ltest.LeerArchivo();
         ltest.cerrarArchivo();
-        //Coordenada coordInicialR1 = new Coordenada(ltest.entradas[1].substring(), , orientacion)
+        
+        Marte marte = new Marte(Integer.valueOf(ltest.entradas.get(0).substring(0,1)),Integer.valueOf(ltest.entradas.get(0).substring(1,2)));
+        Coordenada coordInicialR1 = new Coordenada(Integer.valueOf(ltest.entradas.get(1).substring(0, 1)),Integer.valueOf(ltest.entradas.get(1).substring(1, 2)), ltest.entradas.get(1).charAt(2));
+        Movimiento movR1 = new Movimiento(ltest.entradas.get(2));
+        Robot r1 =  new Robot(coordInicialR1);
+        
+        int i=0;       
+        while (i<= movR1.mov.length-1){
+        r1.ejecutar(movR1.getNextMov());}
+        r1.getCoordenada();
     }
     
 }

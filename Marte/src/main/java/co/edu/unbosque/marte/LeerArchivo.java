@@ -29,21 +29,18 @@ public class LeerArchivo {
     DataInputStream distream;
     //FileReader entrada;
     BufferedReader in;
-    File ruta;
+    
     public ArrayList<String> entradas=new ArrayList();
     
     public LeerArchivo(String entradastxt) throws FileNotFoundException {
         if(entradastxt.isEmpty())
             throw new IllegalArgumentException("La ubicación del archivo no puede ser vacía");
-        //if(!entradastxt.matches("txt?"))
-         //   throw new IllegalArgumentException("La ubicación del archivo no es válida");
-        this.ruta=new File(entradastxt);  
+                
         this.fstream=new FileInputStream(entradastxt);
     }
     public void AbrirArchivo() {
-        //entrada = new FileReader(ruta);
+       
             distream = new DataInputStream(fstream);
-//            in = new BufferedReader(entrada);
             in = new BufferedReader(new InputStreamReader(distream));
                
     }
