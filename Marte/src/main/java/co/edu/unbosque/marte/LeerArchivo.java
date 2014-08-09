@@ -34,9 +34,8 @@ public class LeerArchivo {
     
     public LeerArchivo(String entradastxt) throws FileNotFoundException {
         if(entradastxt.isEmpty())
-            throw new IllegalArgumentException("La ubicación del archivo no puede ser vacía");
-                
-        this.fstream=new FileInputStream(entradastxt);
+            throw new IllegalArgumentException("La ubicación del archivo no puede ser vacía");                
+            this.fstream=new FileInputStream(entradastxt);
     }
     public void AbrirArchivo() {
        
@@ -49,8 +48,7 @@ public class LeerArchivo {
         try{
         String s=in.readLine();
         while ( s!=null) {         	     
-	          entradas.add(s);  
-                  System.out.println(s);
+	          entradas.add(s);                   
                   s = in.readLine();	            
 	         }
         }catch(EOFException endOfFileException){return;}
